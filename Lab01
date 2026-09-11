@@ -1,1 +1,64 @@
-
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Portal de Portafolio Academico</title>
+</head>
+<body>
+<!--Menu de navegacion-->
+<ul class="navbar">
+  <li><a href="#sobre-mi">Sobre mi</a>
+  <li><a href="#proyectos">Proyectos</a>
+  <li><a href="#contacto">Contacto</a>
+</ul>
+<!--Encabezado-->
+<h1>Portal de Portafolio Academico</h1>
+<!--Article 1-->
+<article id="sobre-mi">
+<h2>Sobre mi</h2>
+<p>Soy Aldo Cabana, estudiante de Ingenieria de Sistemas.</p>
+<p>Este es mi portafolio del curso Desarrollo Web 2026</p>
+<ul>
+  <li>HTML5
+  <li>CSS3
+</ul>
+</article>
+<!--Article 2-->
+<article id="proyectos">
+<h2>Proyectos</h2>
+<p>Trabajos del laboratorio.</p>
+<ul>
+  <li>Curriculum Web
+  <li>Formulario
+<h2>Cursos llevados</h2>
+<ul>
+  <li>Introduccion al desarrollo de software
+  <li>Desarrollo de software orientado a objetos
+</ul>
+<ol>
+  <li>Investigacion
+  <li>Validacion
+</ol>
+<table>
+  <caption>Proyectos realizados</caption>
+  <thead>
+    <tr><th scope="col">Proyecto</th><th scope="col">Tecnologia</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Curriculum Web</td><td>HTML5</td></tr>
+    <tr><td>Formulario</td><td>CSS3</td></tr>
+  </tbody>
+</table>
+<figure>
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSq78ZYCuhcntSNrcPaPWMcOhA80J55QW9NHG-krpIVGhqQi7PlC0tRHbHy&s=10/200x100" alt="Captura del proyecto Curriculum Web">
+  <figcaption>Figura 1. Curriculum Web.</figcaption>
+</figure>
+</article>
+<!--Pie de pagina-->
+<address id="contacto">
+  Aldo Cabana<br>
+  <a href="mailto:acabanap@unsa.edu.pe">acabanap@unsa.edu.pe</a><br>
+  2026 Aldo Cabana
+</address>
+</body>
+</html>
