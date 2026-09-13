@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Portal de Portafolio Academico</title>
+</head>
+<body>
+    <!-- Menú de navegación -->
+    <ul class="navbar">
+        <li><a href="#sobre-mi">Sobre mi</a></li>
+        <li><a href="#proyectos">Proyectos</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+    </ul>
+
+    <!-- Encabezado -->
+    <h1>Portal de Portafolio Academico</h1>
+
+    <article id="sobre-mi">
+        <h2>Sobre mi</h2>
+        <p>Soy Aldo Cabana, estudiante de Ingeniería de Sistemas.</p>
+        <p>Este es mi portafolio del curso Desarrollo Web 2026</p>
+        <ul>
+            <li>HTML5</li>
+            <li>CSS3</li>
+        </ul>
+    </article>
+
+    <article id="proyectos">
+        <h2>Proyectos</h2>
+        <p>Trabajos del laboratorio.</p>
+        <ul>
+            <li>Currículum Web</li>
+            <li>Formulario</li>
+        </ul>
+        <h3>Cursos llevados</h3>
+        <ol>
+            <li>Introduccion al desarrollo de software</li>
+            <li>Desarrollo de software orientado a objetos</li>
+        </ol>
+        <ol>
+            <li>Investigacion</li>
+            <li>Validacion</li>
+        </ol>
+        <table>
+            <caption>Proyectos realizados</caption>
+            <thead>
+                <tr><th scope="col">Proyectos</th><th scope="col">Tecnologias</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Currículum Web</td><td>HTML5</td></tr>
+                <tr><td>Formulario</td><td>CSS3</td></tr>
+            </tbody>
+        </table>
+        <figure>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSq78ZYCuJwnt5hrePaPMaMC0AB0J5SQ0N9Wg&s=10"/>
+            <figcaption>Figura 1. curriculum web.</figcaption>
+        </figure>
+    </article>
+
+    <!-- Pie de página -->
+    <address id="contacto">
+        Aldo Cabanabr<br>
+        <a href="mailto:acabanap@unsa.edu.pe">acabanap@unsa.edu.pe</a><br>
+        2026 Aldo Cabana
+    </address>
+</body>
