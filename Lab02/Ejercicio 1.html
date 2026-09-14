@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro</title>
+</head>
+<body>
+<form action="registrar" method="post">
+    <fieldset>
+        <legend>Informacion Personal</legend>
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required><br><br>
+        <label for="correo">Correo:</label>
+        <input type="email" id="correo" name="correo" required><br><br>
+        <label for="fecha">Fecha de nacimiento:</label>
+        <input type="date" id="fecha" name="fecha" required><br><br>
+        <label for="edad">Edad:</label>
+        <input type="number" id="edad" name="edad" min="15" max="99" required><br><br>
+        <label for="comentarios">Comentarios:</label><br>
+        <textarea id="comentarios" name="comentarios" rows="3" cols="30"></textarea>
+    </fieldset>
+    <br>
+    <fieldset>
+        <legend>Informacion de la Cuenta</legend>
+        <label for="password">Contrasena:</label>
+        <input type="password" id="password" name="password" minlength="8" required><br><br>
+        <label for="carrera">Carrera Profesional:</label>
+        <select id="carrera" name="carrera" required>
+            <option value="">-- Seleccione --</option>
+            <option value="sistemas">Ingenieria de Sistemas</option>
+            <option value="civil">Ingenieria Civil</option>
+            <option value="medicina">Medicina</option>
+            <option value="derecho">Derecho</option>
+        </select><br><br>
+        <label>Turno:</label><br>
+        <input type="radio" id="manana" name="turno" value="manana" required>
+        <label for="manana">Mañana</label>
+        <input type="radio" id="tarde" name="turno" value="tarde">
+        <label for="tarde">Tarde</label><br><br>
+        <input type="checkbox" id="terminos" name="terminos" required>
+        <label for="terminos">Acepto los terminos y condiciones</label>
+    </fieldset>
+    <br>
+    <button type="submit">Registrar</button>
+    <button type="reset">Limpiar</button>
+</form>
+</body>
+</html> 
