@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Estudiante</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="card">
+        <h1>Registro de Estudiante</h1>
+        <p>Complete los siguientes datos para registrarse.</p>
+        <form action="registrar" method="post">
+            <fieldset>
+                <legend>Información Personal</legend>
+                <label for="codigo">Código de estudiante:</label>
+                <input type="text" id="codigo" name="codigo"
+                       pattern="[0-9]{8}" maxlength="8" required>
+                <label for="nombre">Nombre completo:</label>
+                <input type="text" id="nombre" name="nombre" required>
+                <label for="correo">Correo electrónico:</label>
+                <input type="email" id="correo" name="correo" required>
+                <label for="fecha">Fecha de nacimiento:</label>
+                <input type="date" id="fecha" name="fecha"
+                       min="1950-01-01" max="2010-12-31" required>
+                <label for="edad">Edad:</label>
+                <input type="number" id="edad" name="edad"
+                       min="15" max="100" required>
+                <label for="carrera">Carrera Profesional:</label>
+                <select id="carrera" name="carrera" required>
+                    <option value="">Seleccione una carrera</option>
+                    <option value="sistemas">Ingeniería de Sistemas</option>
+                    <option value="civil">Ingeniería Civil</option>
+                    <option value="administracion">Administración</option>
+                    <option value="contabilidad">Contabilidad</option>
+                    <option value="derecho">Derecho</option>
+                </select>
+                <p>Tuno:</p>
+                <div class="radio-group">
+                    <input type="radio" id="manana" name="turno" value="manana" required>
+                    <label for="manana">Mañana</label>
+                    <input type="radio" id="tarde" name="turno" value="tarde">
+                    <label for="tarde">Tarde</label>
+                    <input type="radio" id="noche" name="turno" value="noche">
+                    <label for="noche">Noche</label>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Información de la Cuenta</legend>
+                <label for="usuario">Usuario:</label>
+                <input type="text" id="usuario" name="usuario" required>
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" name="password"
+                       minlength="8"
+                       pattern="(?=.*[A-Z])(?=.*[0-9]).{8,}"
+                       required>
+                <label for="comentarios">Comentarios:</label>
+                <textarea id="comentarios" name="comentarios"
+                          rows="4"></textarea>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="terminos" name="terminos" required>
+                    <label for="terminos">
+                        Acepto los términos y condiciones
+                    </label>
+                </div>
+            </fieldset>
+            <button type="submit">Registrar estudiante</button>
+            <button type="reset" class="reset">Limpiar</button>
+        </form>
+    </div>
+</body>
+</html>
