@@ -13,6 +13,13 @@
         <form action="registered" method="post" id="formRegistro" novalidate>
             <fieldset>
                 <legend>Informacion personal</legend>
+                <div class="form-group">
+                    <label for="codigo">Codigo de estudiante</label>
+                    <input type="text" id="codigo" name="codigo"
+                    placeholder="123456789" pattern="[0-9]{8}" maxlength="8"
+                    required>
+                    <small class="hint">8 digitos numericos exactos</small>
+                </div>
             </fieldset>
         </form>
     </main>
