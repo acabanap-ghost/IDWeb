@@ -66,3 +66,21 @@ text-align:left;
 display:inline;
 margin-top:0;
 }
+button{
+padding:8px 15px;
+margin:5px;
+background:blue;
+color:white;
+border:none;
+cursor:pointer;
+}
+button:hover{
+background:green;
+}
+button:active{
+background:red;
+}
+button:disabled{
+background:gray;
+cursor:not-allowed;
+}
