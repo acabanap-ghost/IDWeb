@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de nuevos estudiantes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="card">
+        <h1>Registro de nuevo estudiantes</h1>
+        <p class="subtitle">Completa los datos para crear tu cuenta acdemica</p>
+        <form action="registered" method="post" id="formRegistro" novalidate>
+            <fieldset>
+                <legend>Informacion personal</legend>
+                <div class="form-group">
+                    <label for="codigo">Codigo de estudiante</label>
+                    <input type="text" id="codigo" name="codigo"
+                    placeholder="123456789" pattern="[0-9]{8}" maxlength="8"
+                    required>
+                    <small class="hint">8 digitos numericos exactos</small>
+                </div>
+                <div class="form-group">
+                    <label for="nombres">Nombres completos</label>
+                    <input type="text" id="nombres" name="nombres"
+                    placeholder="Ej: Aldo Cabana Perales" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo electronico</label>
+                    <input type="email" id="email" name="email"
+                    placeholder="acabanap@unsa.edu.pe" required>
+                </div>
+                <div class="form-group">
+                    <label for="Fechadenacimiento">Fecha de nacimiento</label>
+                    <input type="date" id="Fechadenacimiento"
+                    name="Fechadenacimiento" min="1950-01-01"
+                    max="2009-12-31" required>
+                    <small class="hint">Rango valido: 1950-2010</small>
+                </div>
+                <div class="form-group">
+                    <label for="carrera">Carrera profesional</label>
+                    <select id="carrera" name="carrera" required>
+                     <option value="" disabled selected> Selecciona una carrera </option>
+                     <option value="ingenieria-sistemas">Ingeniería de Sistemas</option>
+                     <option value="administracion">Administración de Empresas</option>
+                     <option value="contabilidad">Contabilidad</option>
+                     <option value="derecho">Derecho</option>
+                     <option value="medicina">Medicina Humana</option>
+                     <option value="psicologia">Psicología</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <span class="label-text">Turno:</span>
+                    <div class="radio-group">
+                        <input type="radio" id="turnomañana" name="turno"
+                        value="mañana" required>
+                        <label for="turnomañana">Mañana</label>
+                        <input type="radio" id="turnotarde" name="turnno"
+                        value="tarde" required>
+                        <label for="turnotarde">Tarde</label>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Informacion de la cuenta</legend>
+                <div class="form-group">
+                    <label for="password">Contraseña</label>
+                    <input type="password" id="password"
+                    name="password"  minlength="8"
+                    pattern="(?=.*(A-Z))(?=.*[0-9].{8,})" required>
+                    <small class="hint">Minimo 8 caracateres, una mayuscula y un numero</small>
+                </div>
+            </fieldset>
+        </form>
+    </main>
+</body>
