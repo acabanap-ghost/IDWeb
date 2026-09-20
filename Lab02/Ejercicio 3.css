@@ -25,3 +25,23 @@ legend{
 color:blue;
 font-weight:bold;
 }
+.form-group label{
+display:block;
+margin-top:8px;
+text-align:left;
+}
+input,select,textarea{
+width:90%;
+padding:5px;
+margin-top:3px;
+border:1px solid black;
+}
+input:hover,select:hover,textarea:hover{
+background:yellow;
+}
+input:focus,select:focus,textarea:focus{
+background:lightgreen;
+}
+input:disabled{
+background:gray;
+}
