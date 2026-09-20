@@ -4,7 +4,6 @@ font-family:Arial;
 text-align:center;
 padding:20px;
 }
-
 .card{
 background:white;
 width:600px;
@@ -12,4 +11,17 @@ margin:auto;
 padding:20px;
 border:2px solid black;
 border-radius:10px;
+}
+h1{
+color:red;
+}
+fieldset{
+border:1px solid gray;
+margin-bottom:15px;
+background:#fffbe6;
+text-align:left;
+}
+legend{
+color:blue;
+font-weight:bold;
 }
