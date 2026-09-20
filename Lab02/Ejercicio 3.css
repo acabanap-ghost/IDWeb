@@ -1,0 +1,15 @@
+body{
+background:#b3d9ff;
+font-family:Arial;
+text-align:center;
+padding:20px;
+}
+
+.card{
+background:white;
+width:600px;
+margin:auto;
+padding:20px;
+border:2px solid black;
+border-radius:10px;
+}
