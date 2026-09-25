@@ -39,3 +39,14 @@
     <img src="https://via.placeholder.com/500x350" alt="Educación">
   </div>
 </section>
+<section id="cursos" class="cursos">
+    <h2>Nuestros cursos</h2>
+    <div class="grid-cursos">
+        <div class="card-curso"><h3>Calculo</h3><p>Limites y derivadas</p></div>
+        <div class="card-curso"><h3>Programacion</h3><p>HTML, CSS, JS</p></div>
+        <div class="card-curso"><h3>Ingles</h3><p>B1,B2,B3,C1,C2</p></div>
+        <div class="card-curso"><h3>Fisica</h3><p>Calorimetria y electricidad</p></div>
+        <div class="card-curso"><h3>Realidad nacional</h3><p>Politica  y estado</p></div>
+        <div class="card-curso"><h3>Algebra lineal</h3><p>Vectores y matrices</p></div>
+    </div>
+</section>
