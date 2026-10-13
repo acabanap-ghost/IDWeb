@@ -1,0 +1,139 @@
+document.addEventListener("DOMContentLoaded", () => {
+    //1. Estado global de las tareas
+    let tareas = JSON.parse(localStorage.getItem("tareas")) || [];
+    let filtroActual = "todas";
+    const form = document.getElementById("formTarea");
+    const alertas = document.getElementById("alertas");
+    const lista = document.getElementById("listaTareas");
+    const resumen = document.getElementById("resumen");
+    const botones = document.querySelectorAll("[data-filtro]");
+    function guardar() {
+        localStorage.setItem("tareas", JSON.stringify(tareas));
+    }
+    //2. Validamos y agregagamos tareas
+    form.addEventListener("submit", e => {
+        e.preventDefault();
+        alertas.replaceChildren();
+        const titulo = document.getElementById("titulo").value.trim();
+        const curso = document.getElementById("curso").value.trim();
+        const fecha = document.getElementById("fechaEntrega").value;
+        const hoy = new Date();
+        hoy.setHours(0, 0, 0, 0);
+        const errores = [];
+        if (!titulo) errores.push("Ingrese el titulo.");
+        if (!curso) errores.push("Ingrese el curso.");
+        if (!fecha) {
+            errores.push("Ingrese la fecha de entrega.");
+        } else if (new Date(fecha + "T00:00:00") <= hoy) {
+            errores.push("La fecha debe ser posterior a hoy.");
+        }
+        if (errores.length > 0) {
+            errores.forEach(error => {
+                const p = document.createElement("p");
+                p.textContent = error;
+                p.style.color = "red";
+                alertas.appendChild(p);
+            });
+            return;
+        }
+        tareas.push({
+            id: Date.now(),
+            titulo: titulo,
+            curso: curso,
+            fechaEntrega: fecha,
+            completada: false
+        });
+        guardar();
+        form.reset();
+        mostrarAlerta("Tarea agregada exitosamente.", "green");
+        mostrar();
+    });
+    function mostrarAlerta(mensaje, color) {
+        alertas.replaceChildren();
+
+        const p = document.createElement("p");
+        p.textContent = mensaje;
+        p.style.color = color;
+        alertas.appendChild(p);
+    }
+    //3. Mostramos las tareas y aplicamos los filtros
+    function mostrar() {
+        lista.replaceChildren();
+        const filtradas = tareas.filter(t =>
+            filtroActual === "todas" ||
+            (filtroActual === "pendientes" && !t.completada) ||
+            (filtroActual === "completadas" && t.completada)
+        );
+        const elementos = filtradas.map(t => {
+            const li = document.createElement("li");
+            const texto = document.createElement("span");
+            const btnCompletar = document.createElement("button");
+            const btnEliminar = document.createElement("button");
+            texto.className = "textoTarea";
+            texto.textContent =
+                `${t.titulo} - ${t.curso} - ${t.fechaEntrega}`;
+            if (t.completada) {
+                texto.classList.add("completada");
+            }
+            btnCompletar.textContent =
+                t.completada ? "Pendiente" : "Completar";
+
+            btnCompletar.addEventListener("click", () => {
+                alternar(t.id);
+            });
+            btnEliminar.textContent = "Eliminar";
+            btnEliminar.addEventListener("click", () => {
+                eliminar(t.id);
+            });
+            li.append(texto, btnCompletar, btnEliminar);
+            return li;
+        });
+        elementos.forEach(li => lista.appendChild(li));
+        if (filtradas.length === 0) {
+            const li = document.createElement("li");
+            li.textContent = "No hay tareas para mostrar.";
+            lista.appendChild(li);
+        }
+        //4.Resumen usando reduce
+        const datos = tareas.reduce((a, t) => {
+            a.total++;
+            if (t.completada) {
+                a.completadas++;
+            } else {
+                a.pendientes++;
+            }
+            return a;
+        }, { total: 0, completadas: 0, pendientes: 0 });
+        resumen.textContent =
+            `Total: ${datos.total} | Completadas: ${datos.completadas} | Pendientes: ${datos.pendientes}`;
+    }
+    //5. Cambiamos el estado usando find
+    function alternar(id) {
+        const tarea = tareas.find(t => t.id === id);
+        if (tarea) {
+            tarea.completada = !tarea.completada;
+            guardar();
+            mostrar();
+        }
+    }
+    //6. Eliminamos las tareas usando filter
+    function eliminar(id) {
+        tareas = tareas.filter(t => t.id !== id);
+        guardar();
+        mostrar();
+        mostrarAlerta("Tarea eliminada.", "green");
+    }
+    //7. Filtros visuales
+    botones.forEach(boton => {
+        boton.addEventListener("click", () => {
+            filtroActual = boton.dataset.filtro;
+
+            botones.forEach(b => b.classList.remove("activo"));
+            boton.classList.add("activo");
+
+            mostrar();
+        });
+    });
+    //8. Cargamos y mostrar las tareas guardadas
+    mostrar();
+});
