@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestion de Tareas</title>
+</head>
+<body>
+    <header>
+        <h1>Gestion de Tareas</h1>
+    </header>
+    <form id="formTarea">
+        <input type="text" id="titulo" placeholder="Titulo" required>
+        <input type="text" id="curso" placeholder="Curso" required>
+        <input type="date" id="fechaEntrega" required>
+        <button type="submit">Agregar</button>
+    </form>
+    <div id="alertas"></div>
+    <h2>Tareas</h2>
+    <div id="listaTareas"></div>
+    <div id="resumen"></div>
+    <script src="Ejercicio03.js"></script>
+</body>
+</html>
