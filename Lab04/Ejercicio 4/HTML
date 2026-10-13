@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion de Tareas</title>
+    <link rel="stylesheet" href="Ejercicio04.css">
+    <script src="Ejercicio04.js" defer></script>
+</head>
+<body>
+    <main class="contenedor">
+        <h1>Gestion de Tareas</h1>
+
+        <form id="formTarea">
+            <input type="text" id="titulo" placeholder="Titulo de la tarea">
+            <input type="text" id="curso" placeholder="Curso">
+            <input type="date" id="fechaEntrega">
+            <button type="submit">Agregar tarea</button>
+        </form>
+
+        <div id="alertas" aria-live="polite"></div>
+
+        <h2>Mis tareas</h2>
+
+        <div class="filtros">
+            <button type="button" data-filtro="todas" class="activo">Todas</button>
+            <button type="button" data-filtro="pendientes">Pendientes</button>
+            <button type="button" data-filtro="completadas">Completadas</button>
+        </div>
+
+        <ul id="listaTareas"></ul>
+
+        <div id="resumen"></div>
+    </main>
+</body>
+</html>
