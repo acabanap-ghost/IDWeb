@@ -1,0 +1,73 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f1f3f8;
+    margin: 0;
+    padding: 30px;
+}
+.contenedor {
+    max-width: 650px;
+    margin: auto;
+    padding: 25px;
+    background: white;
+    border-radius: 10px;
+}
+h1, h2 {
+    text-align: center;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+input, button {
+    padding: 10px;
+    font-size: 15px;
+}
+button {
+    border: none;
+    border-radius: 5px;
+    background: #3159a5;
+    color: white;
+    cursor: pointer;
+}
+button:hover {
+    opacity: 0.85;
+}
+.filtros {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+.activo {
+    background: #18346b;
+}
+#listaTareas {
+    padding: 0;
+    list-style: none;
+}
+#listaTareas li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 10px 0;
+    padding: 12px;
+    background: #f1f3f8;
+    border-radius: 5px;
+}
+.completada {
+    text-decoration: line-through;
+    color: green;
+}
+.textoTarea {
+    flex: 1;
+    overflow-wrap: anywhere;
+}
+#alertas {
+    margin-top: 10px;
+}
+#resumen {
+    margin-top: 15px;
+    font-weight: bold;
+    text-align: center;
+}
