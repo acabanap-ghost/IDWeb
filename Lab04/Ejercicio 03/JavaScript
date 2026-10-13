@@ -1,0 +1,64 @@
+let tareas = JSON.parse(localStorage.getItem("tareas")) || [];
+const form = document.getElementById("formTarea");
+const alertas = document.getElementById("alertas");
+const lista = document.getElementById("listaTareas");
+const resumen = document.getElementById("resumen");
+function guardar() {
+    localStorage.setItem("tareas", JSON.stringify(tareas));
+}
+form.addEventListener("submit", e => {
+    e.preventDefault();
+    alertas.innerHTML = "";
+    const titulo = document.getElementById("titulo").value.trim();
+    const curso = document.getElementById("curso").value.trim();
+    const fecha = document.getElementById("fechaEntrega").value;
+    const hoy = new Date();
+    hoy.setHours(0, 0, 0, 0);
+    let errores = [];
+    if (!titulo) errores.push("Ingrese el titulo.");
+    if (!curso) errores.push("Ingrese el curso.");
+    if (!fecha) errores.push("Ingrese la fecha.");
+    else if (new Date(fecha + "T00:00:00") <= hoy)
+        errores.push("La fecha debe ser futura.");
+    if (errores.length) {
+        alertas.innerHTML = errores.map(e =>
+            `<p style="color:red">${e}</p>`
+        ).join("");
+        return;
+    }
+    tareas.push({
+        id: Date.now(),
+        titulo,
+        curso,
+        fechaEntrega: fecha,
+        completada: false
+    });
+    guardar();
+    alertas.textContent = "El curso ha sido agregado exitosamente.";
+    alertas.style.color = "green";
+
+    form.reset();
+    mostrar();
+});
+function mostrar() {
+    lista.innerHTML = tareas.map(t =>
+        `<p>${t.titulo} - ${t.curso} - ${t.fechaEntrega}
+        <button onclick="completar(${t.id})"
+        ${t.completada ? "disabled" : ""}>
+        ${t.completada ? "Completada" : "Completar"}</button></p>`
+    ).join("");
+    const total = tareas.reduce(a => a + 1, 0);
+    const completadas = tareas.filter(t => t.completada).length;
+    const pendientes = total - completadas;
+    resumen.textContent =
+        `Total: ${total} | Completadas: ${completadas} | Pendientes: ${pendientes}`;
+}
+function completar(id) {
+    const tarea = tareas.find(t => t.id === id);
+    if (tarea) {
+        tarea.completada = true;
+        guardar();
+        mostrar();
+    }
+}
+mostrar();
