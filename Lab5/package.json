@@ -1,7 +1,7 @@
 {
-  "name": "idweb",
+  "name": "lab5",
   "version": "1.0.0",
-  "description": "Servidor backend estatico y API basica",
+  "description": "Servidor HTTP estático + API básica de estudiantes",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -9,5 +9,6 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "type": "commonjs"
 }
