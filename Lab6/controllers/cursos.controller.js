@@ -6,7 +6,7 @@ exports.listarCursos = (req, res) => {
   const { creditos, nombre, codigo } = req.query;
   if (creditos) resultado = resultado.filter(c => c.creditos === Number(creditos));
   if (nombre) resultado = resultado.filter(c => c.nombre.toLowerCase().includes(nombre.toLowerCase()));
-  if (codigo) resultado = resultado.filter(c => c.codigo.toLowerCase() === codigo.toLowerCase());
+  if (codigo) resultado = resultado.filter(c => c.codigo.toLowerCase() === codigo.toLowerCase()); 
   res.status(200).json(resultado);
 };
 //2. GET /api/cursos/:id
